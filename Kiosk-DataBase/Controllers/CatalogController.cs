@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Kiosk_DataBase.Controllers
 {
-    public class CatalogController
+    public class CatalogController : Controller
     {
         private DataBaseInteractionPostgreSQL _dbInteraction;
         
@@ -12,8 +12,9 @@ namespace Kiosk_DataBase.Controllers
             _dbInteraction = dataBaseInteraction;
         }
         
-        public IActionResult ShowCatalog()
+        public IActionResult Show()
         {
+            var products = _dbInteraction.GetAllProducts();
             return View();
         }
     }

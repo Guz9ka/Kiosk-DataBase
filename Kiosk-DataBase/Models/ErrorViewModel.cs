@@ -1,5 +1,3 @@
-using System;
-
 namespace Kiosk_DataBase.Models
 {
     public class ErrorViewModel

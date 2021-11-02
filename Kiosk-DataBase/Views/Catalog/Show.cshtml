@@ -5,4 +5,30 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Products</h2>
+
+<Table>
+    <tr>
+        <th> Name </th>
+        <th> Price </th>
+        <th> Count </th>
+        <th> Type </th>
+        <th> Producer </th>
+        <th> Author </th>
+    </tr>
+    @{
+        foreach (var selectedProduct in Model.Products)
+        {
+            <tr>
+                <td> <input type="text" value="@selectedProduct.Name"> </td>
+                <td> <input type="text" value="@selectedProduct.Price"> </td>
+                <td> <input type="text" value="@selectedProduct.Count"> </td>
+                <td> <input type="text" value="@selectedProduct.Type"> </td>
+                <td> <input type="text" value="@selectedProduct.Producer"> </td>
+                <td> <input type="text" value="@selectedProduct.Author"> </td>
+            </tr>
+        }
+    }
+</Table>
+
+<button></button>

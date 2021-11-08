@@ -17,21 +17,13 @@ namespace Kiosk_DataBase.Controllers
         public IActionResult Show()
         {
             var products = _dbInteraction.GetAllProducts();
-            var productViewModel = new ProductsViewModel
-            {
-                Products = products
-            };
-
-            return View(productViewModel);
+            return View(products);
         }
 
         [HttpPost]
         public IActionResult Show(Product[] product)
         {
-            var productViewModel = new ProductsViewModel
-            {
-            };
-            return View(productViewModel);
+            return View();
         }
     }
 }

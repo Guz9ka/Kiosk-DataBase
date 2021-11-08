@@ -13,6 +13,7 @@ namespace Kiosk_DataBase.Controllers
             _dbInteraction = dataBaseInteraction;
         }
 
+        [HttpGet]
         public IActionResult Show()
         {
             var products = _dbInteraction.GetAllProducts();
@@ -20,7 +21,16 @@ namespace Kiosk_DataBase.Controllers
             {
                 Products = products
             };
-            
+
+            return View(productViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Show(Product[] product)
+        {
+            var productViewModel = new ProductsViewModel
+            {
+            };
             return View(productViewModel);
         }
     }

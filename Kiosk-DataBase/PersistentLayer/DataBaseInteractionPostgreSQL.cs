@@ -10,6 +10,11 @@ namespace Kiosk_DataBase.PersistentLayer
         
         public Product[] GetAllProducts()
         {
+            for (int i = 0; i < _products.Count; i++)
+            {
+                _products[i].DataBaseId = i;
+            }
+            
             return _products.ToArray();
         }
 
@@ -44,6 +49,22 @@ namespace Kiosk_DataBase.PersistentLayer
 
             _products.Add(product);
             _products.Add(product2);
+        }
+
+        public Product GetProductById(int id)
+        {
+            return _products[id];
+        }
+
+        public void UpdateProduct(Product updatedProduct)
+        {
+            _products[updatedProduct.DataBaseId] = updatedProduct;
+        }
+
+        public void DeleteProduct(int id)
+        {
+            var foundProductToRemove = _products[id];
+            _products.Remove(foundProductToRemove);
         }
     }
 }

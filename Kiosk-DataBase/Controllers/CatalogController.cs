@@ -13,17 +13,31 @@ namespace Kiosk_DataBase.Controllers
             _dbInteraction = dataBaseInteraction;
         }
 
-        [HttpGet]
         public IActionResult Show()
         {
             var products = _dbInteraction.GetAllProducts();
             return View(products);
         }
 
-        [HttpPost]
-        public IActionResult Show(Product[] product)
+        [HttpGet]
+        public IActionResult EditProduct(int id)
         {
-            return View();
+            var product = _dbInteraction.GetProductById(id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult EditProduct(Product product)
+        {
+            _dbInteraction.UpdateProduct(product);
+            return RedirectToAction("Show");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProduct(Product product)
+        {
+            _dbInteraction.DeleteProduct(product.DataBaseId);
+            return RedirectToAction("Show");
         }
     }
 }

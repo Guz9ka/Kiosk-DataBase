@@ -1,4 +1,5 @@
 ﻿@model Product[]
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     Layout = "_Layout";
@@ -6,44 +7,44 @@
 
 <h2>Товары в киоске</h2>
 
-<form method="post">
-    <Table>
-        <tr>
-            <th> Name </th>
-            <th> Price </th>
-            <th> Count </th>
-            <th> Type </th>
-            <th> Producer </th>
-            <th> Author </th>
-        </tr>
-        @{
-            foreach (var selectedProduct in Model)
-            {
-                <div class="product">
-                    <tr>
-                        <td>
-                            <input name="Name" type="text" value="@selectedProduct.Name">
-                        </td>
-                        <td>
-                            <input name="Price" type="number" value="@selectedProduct.Price">
-                        </td>
-                        <td>
-                            <input name="Count" type="number" value="@selectedProduct.Count">
-                        </td>
-                        <td>
-                            <input name="Type" type="text" value="@selectedProduct.Type">
-                        </td>
-                        <td>
-                            <input name="Producer" type="text" value="@selectedProduct.Producer">
-                        </td>
-                        <td>
-                            <input name="Author" type="text" value="@selectedProduct.Author">
-                        </td>
-                    </tr>
-                </div>
-            }
+<Table cellspacing="3" border="1">
+    <tr>
+        <th> Название </th>
+        <th> Цена </th>
+        <th> Количество </th>
+        <th> Тип </th>
+        <th> Производитель </th>
+        <th> Автор </th>
+    </tr>
+    @{
+        foreach (var selectedProduct in Model)
+        {
+            <tr>
+                <td>
+                    <div name="Name" type="text" value="">@selectedProduct.Name</div>
+                </td>
+                <td>
+                    <div name="Price" type="number">@selectedProduct.Price</div>
+                </td>
+                <td>
+                    <div name="Count" type="number">@selectedProduct.Count</div>
+                </td>
+                <td>
+                    <div name="Type" type="text">@selectedProduct.Type</div>
+                </td>
+                <td>
+                    <div name="Producer" type="text">@selectedProduct.Producer</div>
+                </td>
+                <td>
+                    <div name="Author" type="text">@selectedProduct.Author</div>
+                </td>
+                <td>
+                    <button>
+                        <a asp-controller="Catalog" asp-action="EditProduct"
+                           asp-route-id=@selectedProduct.DataBaseId>Изменить</a>
+                    </button>
+                </td>
+            </tr>
         }
-    </Table>
-
-    <input type="submit" value="Сохранить"/>
-</form>
+    }
+</Table>

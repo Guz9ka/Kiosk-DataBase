@@ -7,7 +7,7 @@
 
 <h2>Товары в киоске</h2>
 
-<Table cellspacing="3" border="1">
+<Table cellspacing="10" border="1">
     <tr>
         <th> Название </th>
         <th> Цена </th>
@@ -41,10 +41,18 @@
                 <td>
                     <button>
                         <a asp-controller="Catalog" asp-action="EditProduct"
-                           asp-route-id=@selectedProduct.DataBaseId>Изменить</a>
+                           asp-route-id=@selectedProduct.Id>
+                            Изменить
+                        </a>
                     </button>
                 </td>
             </tr>
         }
     }
 </Table>
+
+<button>
+    <a asp-controller="Catalog" asp-action="AddProduct">
+        Добавить
+    </a>
+</button>

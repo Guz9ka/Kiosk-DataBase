@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Kiosk_DataBase.Models;
 
 namespace Kiosk_DataBase.PersistentLayer
@@ -12,7 +11,7 @@ namespace Kiosk_DataBase.PersistentLayer
         {
             for (int i = 0; i < _products.Count; i++)
             {
-                _products[i].DataBaseId = i;
+                _products[i].Id = i;
             }
             
             return _products.ToArray();
@@ -58,7 +57,7 @@ namespace Kiosk_DataBase.PersistentLayer
 
         public void UpdateProduct(Product updatedProduct)
         {
-            _products[updatedProduct.DataBaseId] = updatedProduct;
+            _products[updatedProduct.Id.Value] = updatedProduct;
         }
 
         public void DeleteProduct(int id)

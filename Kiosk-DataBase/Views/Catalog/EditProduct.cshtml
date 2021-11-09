@@ -1,4 +1,5 @@
 ﻿@model Product
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     Layout = "_Layout";
@@ -15,6 +16,7 @@
             <th> Автор </th>
         </tr>
         <tr>
+            <div hidden name="Id">@Model.Id</div>
             <td>
                 <input name="Name" type="text" value="@Model.Name">
             </td>

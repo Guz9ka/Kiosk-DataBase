@@ -33,9 +33,10 @@ namespace Kiosk_DataBase.Controllers
             return RedirectToAction("Show");
         }
         
+        [HttpPost]
         public IActionResult DeleteProduct(Product product)
         {
-            _dbInteraction.DeleteProduct(product.Id.Value);
+            _dbInteraction.DeleteProduct(product.Id);
             return RedirectToAction("Show");
         }
 

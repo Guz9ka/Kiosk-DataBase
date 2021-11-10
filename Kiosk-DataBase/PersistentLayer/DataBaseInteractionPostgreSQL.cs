@@ -57,7 +57,7 @@ namespace Kiosk_DataBase.PersistentLayer
 
         public void UpdateProduct(Product updatedProduct)
         {
-            _products[updatedProduct.Id.Value] = updatedProduct;
+            _products[updatedProduct.Id] = updatedProduct;
         }
 
         public void DeleteProduct(int id)

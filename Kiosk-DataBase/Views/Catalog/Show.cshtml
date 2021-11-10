@@ -46,6 +46,11 @@
                         </a>
                     </button>
                 </td>
+                <td>
+                    <button>
+                        <a asp-controller="Catalog" asp-action="DeleteProduct" asp-route-product=@selectedProduct>Удалить</a>
+                    </button>
+                </td>
             </tr>
         }
     }
